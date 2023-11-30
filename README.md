@@ -2,12 +2,10 @@
 
 This repository contains tools for converting video files with alpha channels into a side-by-side format where the alpha channel is packed to the right side of the video.
 
-## Directory Structure
+## Installation
 
-- `Input`: Place your `.mov` ProRes 4444 files with alpha channels here.
-- `Output`: After processing, the converted files will be saved here.
-- `SBS-Alpha-h264.bat`: This script converts videos to H.264 encoded MP4 with the alpha channel packed to the side.
-- `SBS-Alpha-h265.bat`: This script converts videos to H.265 (HEVC) encoded MP4 with the alpha channel packed to the side.
+- Download and unzip.
+- Run `Setup.bat` to install or update dependencies. Windows Defender may flag this here but you can select `More Info` and then `Run Anyway` to ignore this.
 
 ## Usage
 
@@ -16,21 +14,22 @@ Before running the scripts, ensure your input files are saved as ProRes 4444 wit
 To process your files:
 
 1. Place all `.mov` files you wish to convert into the `Input` directory.
-2. Run either `SBS-Alpha-h264.bat` or `SBS-Alpha-h265.bat` as an administrator to begin the conversion process.
-3. The script will check for necessary dependencies (FFmpeg and Chocolatey) and install or update them if required.
-4. All files in the `Input` folder will be processed and the outputs will be saved in the `Output` folder, preserving the original file names.
+2. Run the `.bat` file that fits your needs, such as `SBS-Alpha-h264.bat` or `SBS-Alpha-h265.bat`.
+3. All files in the `Input` folder will be processed and the outputs will be saved in the `Output` folder, preserving the original file names.
 
-## Dependencies (Installed Automatically)
+## Dependencies (Installed During Setup)
 
 The scripts require the following dependencies:
 
-- FFmpeg: For video processing.
+- Curl: Used to install Chocolatey package manager from a URL. This is included in versions of Windows 10 or 11 starting at 1803.
 - Chocolatey: For installing and updating FFmpeg on Windows.
+- FFmpeg: For video processing.
 
-If these dependencies are not installed, the scripts will attempt to install them automatically.
+If these dependencies are not installed, the setup script will attempt to install them automatically.
 
 ## Notes
 
-- The conversion maintains the original resolution and aspect ratio of the input files.
-- The `SBS-Alpha-h264.bat` script uses the H.264 codec with a CRF of 18 for high-quality output.
-- The `SBS-Alpha-h265.bat` script uses the H.265 codec with a default bitrate setting for efficient compression.
+- The `SBS-Alpha-h264.bat` script uses H.264 codec, and will double your input video width.
+- The `SBS-Alpha-h265.bat` script uses H.265 (HEVC) codec, and will double your input video width.
+- The `SBS-Alpha-Anamorphic-h264` script uses H.264 codec, and squashes the input video to maintain the original video width.
+- The `SBS-Alpha-Anamorphic-h265` script uses H.265 (HEVC) codec, and squashes the input video to maintain the original video width.
