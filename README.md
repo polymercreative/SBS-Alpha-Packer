@@ -4,7 +4,7 @@ This repository contains tools for converting video files with alpha channels in
 
 ## Installation
 
-- Download and unzip `SBS-Alpha-Packer-main.zip`.
+- Download the project and unzip it.
 - Run `Setup.bat` to install or update dependencies. Windows Defender may flag this here but you can select `More Info` and then `Run Anyway` to ignore this.
 
 ## Usage
